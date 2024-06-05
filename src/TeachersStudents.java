@@ -58,6 +58,11 @@ public class TeachersStudents {
 
     // Verifica si un estudiante existe en el sistema y muestra el profesor al que pertenece
     private void checkStudent() {
+        if (listTeachers.isEmpty() || listGeneralGrouped.isEmpty()) {
+            System.out.println("Debe registrar primero profesores y estudiantes.");
+            return;
+        }
+
         String student;
         Scanner input = new Scanner(System.in);
         System.out.println("Ingresa el estudiante para verificar si se encuentra: ");
@@ -79,6 +84,11 @@ public class TeachersStudents {
 
     // Verifica la cantidad de estudiantes que tiene un profesor específico
     private void checkStudentsPerTeacher() {
+        if (listTeachers.isEmpty() || listGeneralGrouped.isEmpty()) {
+            System.out.println("Debe registrar primero profesores y estudiantes.");
+            return;
+        }
+
         String profesor;
         Scanner input = new Scanner(System.in);
         System.out.println("Ingresa el nombre del profesor para saber la cantidad de estudiantes: ");
@@ -97,6 +107,11 @@ public class TeachersStudents {
 
     // Verifica si un profesor existe en el sistema por nombre
     private void checkTeacherByName() {
+        if (listTeachers.isEmpty()) {
+            System.out.println("Debe registrar primero profesores.");
+            return;
+        }
+
         String nombre;
         Scanner input = new Scanner(System.in);
         System.out.println("Ingresa el nombre de el profesor a buscar: ");
@@ -118,6 +133,11 @@ public class TeachersStudents {
 
     // Muestra todos los profesores con sus correspondientes estudiantes
     private void checkTeacher_Student() {
+        if (listTeachers.isEmpty() || listGeneralGrouped.isEmpty()) {
+            System.out.println("Debe registrar primero profesores y estudiantes.");
+            return;
+        }
+
         for (int i = 0; i < listGeneralGrouped.size(); i++) {
             System.out.println(listTeachers.get(i) + ": " + listGeneralGrouped.get(i));
         }
@@ -125,6 +145,11 @@ public class TeachersStudents {
 
     // Registra estudiantes para cada profesor en el sistema
     private void registerStudents() {
+        if (listTeachers.isEmpty()) {
+            System.out.println("Debe registrar primero profesores.");
+            return;
+        }
+
         Scanner input = new Scanner(System.in);
         for (int i = 0; i < listTeachers.size(); i++) {
             System.out.println("Ingresa la cantidad de estudiantes para el profesor " + (listTeachers.get(i)));
