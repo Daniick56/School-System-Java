@@ -97,8 +97,17 @@ public class TeachersStudents {
 
             listStudents = new ArrayList<>();
             for (int j = 0; j < cant; j++) {
-                System.out.println("Ingresa el nombre de el estudiante " + (j + 1));
-                listStudents.add(input.next());
+                String studentName;
+                while (true) {
+                    System.out.println("Ingresa el nombre de el estudiante " + (j + 1));
+                    studentName = input.next();
+                    if (!listStudents.contains(studentName)) {
+                        listStudents.add(studentName);
+                        break;
+                    } else {
+                        System.out.println("El nombre del estudiante ya existe. Ingresa un nombre diferente.");
+                    }
+                }
             }
             listGeneralGrouped.add(listStudents);
         }
@@ -110,8 +119,17 @@ public class TeachersStudents {
         System.out.println("Ingresa la cantidad de profesores: ");
         int cant = Integer.parseInt(input.next());
         for (int i = 0; i < cant; i++) {
-            System.out.println("Ingresa el profesor " + (i + 1));
-            listTeachers.add(input.next());
+            String teacherName;
+            while (true) {
+                System.out.println("Ingresa el profesor " + (i + 1));
+                teacherName = input.next();
+                if (!listTeachers.contains(teacherName)) {
+                    listTeachers.add(teacherName);
+                    break;
+                } else {
+                    System.out.println("El nombre del profesor ya existe. Ingresa un nombre diferente.");
+                }
+            }
         }
     }
 }
