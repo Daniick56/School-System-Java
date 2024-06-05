@@ -12,13 +12,48 @@ public class TeachersStudents {
         listGeneralGrouped = new ArrayList<ArrayList <String>>();
     }
 
-    public void iniciar() {
-        registerTeachers();
-        registerStudents();
-        checkTeacher_Student();
-        checkTeacherByName();
-        checkStudentsPerTeacher();
-        checkStudent();
+    public void menu() {
+        Scanner input = new Scanner(System.in);
+        int option = 0;
+
+        while (option != 7) {
+            System.out.println("Selecciona una opción:");
+            System.out.println("1. Registrar profesores");
+            System.out.println("2. Registrar estudiantes");
+            System.out.println("3. Verificar estudiante");
+            System.out.println("4. Verificar cantidad de estudiantes por profesor");
+            System.out.println("5. Verificar profesor por nombre");
+            System.out.println("6. Mostrar todos los profesores y sus estudiantes");
+            System.out.println("7. Salir");
+
+            option = Integer.parseInt(input.next());
+
+            switch (option) {
+                case 1:
+                    registerTeachers();
+                    break;
+                case 2:
+                    registerStudents();
+                    break;
+                case 3:
+                    checkStudent();
+                    break;
+                case 4:
+                    checkStudentsPerTeacher();
+                    break;
+                case 5:
+                    checkTeacherByName();
+                    break;
+                case 6:
+                    checkTeacher_Student();
+                    break;
+                case 7:
+                    System.out.println("Saliendo del sistema.");
+                    break;
+                default:
+                    System.out.println("Opción no válida. Intenta de nuevo.");
+            }
+        }
     }
 
     // Verifica si un estudiante existe en el sistema y muestra el profesor al que pertenece
